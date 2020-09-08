@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NbSidebarService, NbMenuItem } from '@nebular/theme';
+import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,9 @@ import { NbSidebarService, NbMenuItem } from '@nebular/theme';
 })
 
 export class AppComponent {
-  title = 'epass-fuel-web';
+  title = 'ePass';
+
+  user = {}; //for logged in user
 
   items: NbMenuItem[] = [
     {
@@ -24,7 +27,16 @@ export class AppComponent {
     }
   ];
 
-  constructor(private readonly sidebarService: NbSidebarService) {
+  constructor(private readonly sidebarService: NbSidebarService, private authService: NbAuthService) {
+    this.authService.onTokenChange()
+      .subscribe((token: NbAuthJWTToken) => {
+
+        if (token.isValid()) {
+          this.user = token.getPayload(); // here we receive a payload from the token and assigns it to our `user` variable 
+          console.log(this.user[0].email);
+        }
+
+      });
   }
 
   toggleSidebar(): boolean {
