@@ -23,7 +23,24 @@ export class AppComponent {
     {
       title: 'Administration',
       icon: 'people-outline',
-      link: '/administration'
+      link: '/administration',
+      children: [
+        {
+          title: 'Fuel Companies',
+          icon: 'chevron-right-outline',
+          link: '/fuel-companies',
+        },
+        {
+          title: 'Fuel Stations',
+          icon: 'chevron-right-outline',
+          link: '/fuel-stations',
+        },
+        {
+          title: 'Fuel Attendants',
+          icon: 'chevron-right-outline',
+          link: '/fuel-attendants',
+        },
+      ],
     }
   ];
 

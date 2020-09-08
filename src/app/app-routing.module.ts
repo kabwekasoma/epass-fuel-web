@@ -50,6 +50,9 @@ const routes: Routes = [
   },
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   { path: 'administration', canActivate: [AuthGuard], loadChildren: () => import('./administration/administration.module').then(m => m.AdministrationModule) },
+  { path: 'fuel-companies', canActivate: [AuthGuard], loadChildren: () => import('./fuel-companies/fuel-companies.module').then(m => m.FuelCompaniesModule) },
+  { path: 'fuel-stations', canActivate: [AuthGuard], loadChildren: () => import('./fuel-stations/fuel-stations.module').then(m => m.FuelStationsModule) },
+  { path: 'fuel-attendants', canActivate: [AuthGuard], loadChildren: () => import('./fuel-attendants/fuel-attendants.module').then(m => m.FuelAttendantsModule) },
   {path: '**', redirectTo: 'dashboard'},
 ];
 
