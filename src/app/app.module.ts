@@ -9,6 +9,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken } from '@nebular/auth';
+import { AuthGuard } from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,9 @@ import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken } from '@nebular/a
       forms: {},
     }),
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

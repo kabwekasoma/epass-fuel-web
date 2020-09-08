@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from './auth-guard.service';
 //Authentication Imports
 import {
   NbAuthComponent,
@@ -14,6 +15,7 @@ import {
 const routes: Routes = [
   {
     path: 'dashboard',
+    canActivate: [AuthGuard],
     component: DashboardComponent
   },
   {
@@ -47,7 +49,7 @@ const routes: Routes = [
     ],
   },
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-  { path: 'administration', loadChildren: () => import('./administration/administration.module').then(m => m.AdministrationModule) },
+  { path: 'administration', canActivate: [AuthGuard], loadChildren: () => import('./administration/administration.module').then(m => m.AdministrationModule) },
   {path: '**', redirectTo: 'dashboard'},
 ];
 
