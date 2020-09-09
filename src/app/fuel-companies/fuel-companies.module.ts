@@ -6,6 +6,7 @@ import { FuelCompaniesRoutingModule } from './fuel-companies-routing.module';
 import { FuelCompaniesComponent } from './fuel-companies.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { Ng2CompleterModule } from "@akveo/ng2-completer";
+import { NbCardModule } from '@nebular/theme';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { Ng2CompleterModule } from "@akveo/ng2-completer";
     HttpClientModule,
     FuelCompaniesRoutingModule,
     Ng2SmartTableModule,
+    NbCardModule,
   ]
 })
 export class FuelCompaniesModule { }
