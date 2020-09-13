@@ -36,7 +36,8 @@ import { AuthGuard } from './auth-guard.service';
             class: NbAuthJWTToken,
             key: 'token', // this parameter tells where to look for the token
           },
-          baseEndpoint: 'http://localhost/ePassAPI',
+          baseEndpoint: 'http://localhost/ePassAPI/v1',
+          //baseEndpoint: 'http://test.epassapi.dczambia.com/v1',
           login: {
             endpoint: '/sign-in.php',
             method: 'post',

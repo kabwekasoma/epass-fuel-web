@@ -13,6 +13,18 @@ export class AppComponent {
 
   user = {}; //for logged in user
 
+  constructor(private readonly sidebarService: NbSidebarService, private authService: NbAuthService) {
+    this.authService.onTokenChange()
+      .subscribe((token: NbAuthJWTToken) => {
+
+        if (token.isValid()) {
+          this.user = token.getPayload(); // here we receive a payload from the token and assigns it to our `user` variable 
+          //console.log(this.user[0].email);
+        }
+
+      });
+  }
+
   items: NbMenuItem[] = [
     {
       title: 'Dashboard',
@@ -43,18 +55,6 @@ export class AppComponent {
       ],
     }
   ];
-
-  constructor(private readonly sidebarService: NbSidebarService, private authService: NbAuthService) {
-    this.authService.onTokenChange()
-      .subscribe((token: NbAuthJWTToken) => {
-
-        if (token.isValid()) {
-          this.user = token.getPayload(); // here we receive a payload from the token and assigns it to our `user` variable 
-          console.log(this.user[0].email);
-        }
-
-      });
-  }
 
   toggleSidebar(): boolean {
     this.sidebarService.toggle();
