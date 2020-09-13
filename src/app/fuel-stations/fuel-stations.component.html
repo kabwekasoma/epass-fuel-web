@@ -1,1 +1,16 @@
-<p>fuel-stations works!</p>
+<nb-card accent="info">
+    <nb-card-header>
+        Fuel Stations
+    </nb-card-header>
+  
+    <nb-card-body>
+        <input #search class="search" type="text" placeholder="Search..." (keydown.enter)="onSearch(search.value)">
+        <ng2-smart-table 
+        [settings]="settings"
+        [source]="data"
+        (createConfirm)="onAddCall($event)"
+        (editConfirm)="onEditCall($event)"
+        (deleteConfirm)="onDeleteCall($event)">
+        </ng2-smart-table>
+    </nb-card-body>
+</nb-card>
