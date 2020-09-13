@@ -32,7 +32,12 @@ export class AppComponent {
           link: '/fuel-companies',
         },
       ],
-    }
+    },
+    {
+      title: 'Sign out',
+      icon: 'log-out-outline',
+      link: '/logout',
+    },
   ];
 
   itemsFuelCompanyAdmin: NbMenuItem[] = [
@@ -58,7 +63,12 @@ export class AppComponent {
           link: '/fuel-attendants',
         },
       ],
-    }
+    },
+    {
+      title: 'Sign out',
+      icon: 'log-out-outline',
+      link: '/logout',
+    },
   ];
 
   constructor(private readonly sidebarService: NbSidebarService, private authService: NbAuthService) {

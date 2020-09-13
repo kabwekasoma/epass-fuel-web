@@ -50,8 +50,8 @@ export class FuelCompaniesComponent implements OnInit {
 
   ngOnInit(): void {
     // Simple GET request with response type <any> 
-    this.http.get("http://localhost/ePassAPI/v1/fuel-companies.php").subscribe(user => (this.data = user));
-    //this.http.get("http://test.epassapi.dczambia.com/v1/fuel-companies.php").subscribe(user => (this.data = user));
+    //this.http.get("http://localhost/ePassAPI/v1/fuel-companies.php").subscribe(user => (this.data = user));
+    this.http.get("http://test.epassapi.dczambia.com/v1/fuel-companies.php").subscribe(user => (this.data = user));
   }
 
   onAddCall(event){
@@ -59,8 +59,8 @@ export class FuelCompaniesComponent implements OnInit {
             event.newData.source = "add"; 
             console.log(event.newData); //this contains the new edited data
         //post request
-    const req = this.http.post('http://localhost/ePassAPI/v1/fuel-companies.php', event.newData);
-    //const req = this.http.post('http://test.epassapi.dczambia.com/v1/fuel-companies.php', event.newData);
+    //const req = this.http.post('http://localhost/ePassAPI/v1/fuel-companies.php', event.newData);
+    const req = this.http.post('http://test.epassapi.dczambia.com/v1/fuel-companies.php', event.newData);
      // 0 requests made - .subscribe() not called.
     req.subscribe();
    // 1 request made.
@@ -70,8 +70,8 @@ export class FuelCompaniesComponent implements OnInit {
             event.newData.source = "edit"; 
             console.log(event.newData); //this contains the new edited data
         //post request
-    const req = this.http.post('http://localhost/ePassAPI/v1/fuel-companies.php', event.newData);
-    //const req = this.http.post('http://test.epassapi.dczambia.com/v1/fuel-companies.php', event.newData);
+    //const req = this.http.post('http://localhost/ePassAPI/v1/fuel-companies.php', event.newData);
+    const req = this.http.post('http://test.epassapi.dczambia.com/v1/fuel-companies.php', event.newData);
      // 0 requests made - .subscribe() not called.
     req.subscribe();
    // 1 request made.
@@ -81,8 +81,8 @@ export class FuelCompaniesComponent implements OnInit {
             event.data.source = "delete"; 
             console.log(event.data); //this contains the new edited data
         //post request
-    const req = this.http.post('http://localhost/ePassAPI/v1/fuel-companies.php', event.data);
-    //const req = this.http.post('http://test.epassapi.dczambia.com/v1/fuel-companies.php', event.data);
+    //const req = this.http.post('http://localhost/ePassAPI/v1/fuel-companies.php', event.data);
+    const req = this.http.post('http://test.epassapi.dczambia.com/v1/fuel-companies.php', event.data);
      // 0 requests made - .subscribe() not called.
     req.subscribe();
    // 1 request made.
