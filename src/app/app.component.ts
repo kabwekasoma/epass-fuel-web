@@ -14,6 +14,13 @@ export class AppComponent {
   user = {}; //for logged in user
   userLevel = "";
 
+  itemsNull: NbMenuItem[] = [
+    {
+      title: 'Register',
+      icon: 'person-done-outline',
+      link: '/register',
+    },
+  ];
   itemsBookNowAdmin: NbMenuItem[] = [
     {
       title: 'Dashboard',
@@ -39,7 +46,6 @@ export class AppComponent {
       link: '/logout',
     },
   ];
-
   itemsFuelCompanyAdmin: NbMenuItem[] = [
     {
       title: 'Dashboard',
@@ -77,7 +83,7 @@ export class AppComponent {
 
         if (token.isValid()) {
           this.user = token.getPayload(); // here we receive a payload from the token and assigns it to our `user` variable 
-          //console.log(this.user[0].email);
+          //console.log(this.user[0].level);
 
           //User Specific Menu
           if(this.user[0].level == '2'){
