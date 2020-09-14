@@ -56,7 +56,7 @@ export class FuelStationsComponent implements OnInit {
   ngOnInit(): void {
     // Simple GET request with response type <any> 
     //this.http.post("http://localhost/ePassAPI/v1/fuel-stations.php", this.users[0]).subscribe(user => (this.data = user));
-    this.http.get("http://test.epassapi.dczambia.com/v1/fuel-stations.php").subscribe(user => (this.data = user));
+    this.http.post("http://test.epassapi.dczambia.com/v1/fuel-stations.php", this.users[0]).subscribe(user => (this.data = user));
   }
 
   onAddCall(event){
