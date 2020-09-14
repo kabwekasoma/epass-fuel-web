@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  //apiUrl: 'http://test.epassapi.dczambia.com/v1'
+  apiUrl: 'http://localhost/ePassAPI/v1'
 };
 
 /*

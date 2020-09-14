@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { environment } from './../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,8 +37,7 @@ import { AuthGuard } from './auth-guard.service';
             class: NbAuthJWTToken,
             key: 'token', // this parameter tells where to look for the token
           },
-          //baseEndpoint: 'http://localhost/ePassAPI/v1',
-          baseEndpoint: 'http://test.epassapi.dczambia.com/v1',
+          baseEndpoint: environment.apiUrl,
           login: {
             endpoint: '/sign-in.php',
             method: 'post',

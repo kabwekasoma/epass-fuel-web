@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
+import { environment } from '../../environments/environment';
 
 
 import { Ng2SmartTableModule, LocalDataSource } from 'ng2-smart-table';
@@ -31,7 +32,7 @@ export class FuelStationsComponent implements OnInit {
       stationId: {
         title: "ID",
         filter: false,
-        editable: false
+        editable: false,
       },
       stationName: {
         title: "Station Name",
@@ -46,7 +47,7 @@ export class FuelStationsComponent implements OnInit {
 
         if (token.isValid()) {
           this.users = token.getPayload(); // here we receive a payload from the token and assigns it to our `user` variable 
-          console.log(this.users[0]);
+          //console.log(this.users[0]);
         }
 
       });
@@ -54,9 +55,7 @@ export class FuelStationsComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    // Simple GET request with response type <any> 
-    //this.http.post("http://localhost/ePassAPI/v1/fuel-stations.php", this.users[0]).subscribe(user => (this.data = user));
-    this.http.post("http://test.epassapi.dczambia.com/v1/fuel-stations.php", this.users[0]).subscribe(user => (this.data = user));
+    this.http.post(environment.apiUrl.concat("/fuel-stations.php"), this.users[0]).subscribe(user => (this.data = user));
   }
 
   onAddCall(event){
@@ -64,8 +63,7 @@ export class FuelStationsComponent implements OnInit {
             event.newData.source = "add"; 
             console.log(event.newData); //this contains the new edited data
         //post request
-    //const req = this.http.post('http://localhost/ePassAPI/v1/fuel-stations.php', event.newData);
-    const req = this.http.post('http://test.epassapi.dczambia.com/v1/fuel-stations.php', event.newData);
+    const req = this.http.post(environment.apiUrl.concat('/fuel-stations.php'), event.newData);
      // 0 requests made - .subscribe() not called.
     req.subscribe();
    // 1 request made.
@@ -75,8 +73,7 @@ export class FuelStationsComponent implements OnInit {
             event.newData.source = "edit"; 
             console.log(event.newData); //this contains the new edited data
         //post request
-    //const req = this.http.post('http://localhost/ePassAPI/v1/fuel-stations.php', event.newData);
-    const req = this.http.post('http://test.epassapi.dczambia.com/v1/fuel-stations.php', event.newData);
+    const req = this.http.post(environment.apiUrl.concat('/fuel-stations.php'), event.newData);
      // 0 requests made - .subscribe() not called.
     req.subscribe();
    // 1 request made.
@@ -86,8 +83,7 @@ export class FuelStationsComponent implements OnInit {
             event.data.source = "delete"; 
             console.log(event.data); //this contains the new edited data
         //post request
-    //const req = this.http.post('http://localhost/ePassAPI/v1/fuel-stations.php', event.data);
-    const req = this.http.post('http://test.epassapi.dczambia.com/v1/fuel-stations.php', event.data);
+    const req = this.http.post(environment.apiUrl.concat('/fuel-stations.php'), event.data);
      // 0 requests made - .subscribe() not called.
     req.subscribe();
    // 1 request made.
