@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './auth-guard.service';
-//Authentication Imports
+//Authentication Imports.
 import {
   NbAuthComponent,
   NbLoginComponent,
