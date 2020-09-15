@@ -32,12 +32,16 @@ export class FuelAttendantsComponent implements OnInit {
         filter: false,
         editable: false,
       },
-      firstName: {
-        title: "First Name",
+      email: {
+        title: "Email",
         filter: false
       },
-      lastName: {
-        title: "First Name",
+      password: {
+        title: "Password",
+        filter: false
+      },
+      station: {
+        title: "Station",
         filter: false
       },
     }
@@ -62,7 +66,8 @@ export class FuelAttendantsComponent implements OnInit {
 
   onAddCall(event){
     event.confirm.resolve(event.newData);
-            event.newData.source = "add"; 
+            event.newData.source = "add";
+            event.newData.company =  this.users[0].id; 
             console.log(event.newData); //this contains the new edited data
         //post request
     const req = this.http.post(environment.apiUrl.concat('/fuel-attendants.php'), event.newData);
@@ -72,7 +77,8 @@ export class FuelAttendantsComponent implements OnInit {
   }
   onEditCall(event){
     event.confirm.resolve(event.newData);
-            event.newData.source = "edit"; 
+            event.newData.source = "edit";
+            event.newData.company =  this.users[0].id; 
             console.log(event.newData); //this contains the new edited data
         //post request
     const req = this.http.post(environment.apiUrl.concat('/fuel-attendants.php'), event.newData);
@@ -99,11 +105,15 @@ export class FuelAttendantsComponent implements OnInit {
         search: query
       },
       {
-        field: 'firstName',
+        field: 'email',
         search: query
       },
       {
-        field: 'lastName',
+        field: 'password',
+        search: query
+      },
+      {
+        field: 'station',
         search: query
       },
     ], false); 
